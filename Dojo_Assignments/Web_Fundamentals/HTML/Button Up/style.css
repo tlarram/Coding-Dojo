@@ -1,0 +1,27 @@
+.search, .btnadd, .create{
+display: block;
+margin-bottom: 10px;
+height: 40 px
+}
+.search {
+    background-color: #F5F5F5;
+    color: #70C0C1;
+    border: 2px solid #70C0C1;
+    width: 100px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+.btnadd { 
+    background-color: #00D1B2;
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    font-size: 15px;
+}
+.create{
+    background-color: #2B78E4 ;
+    color:white;
+    border: 2px solid black;
+    width: 150px;
+    box-shadow: 3px 3px 3px black;}
+    
