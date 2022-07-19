@@ -1,0 +1,19 @@
+*{font-family: sans-serif;}
+h1 {
+    background-color: black;
+    color: skyblue;    
+}
+.white {
+    color:white
+}
+h2 {
+    background-color:rebeccapurple;
+    color:white;
+    text-align: center;
+    font-style:italic ;}
+h3 {
+    background-color:skyblue; 
+    color:rgb(70, 0, 70);
+    text-align: right;
+    text-decoration: underline ;
+}
