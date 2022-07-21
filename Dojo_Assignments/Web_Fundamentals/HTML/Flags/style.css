@@ -1,0 +1,27 @@
+.flag{
+display:flex;
+justify-content: space-between;
+
+}
+.flag1{
+    margin-top: 100px;
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.blue{
+background-color: #0067A2;
+height: 400px;
+width:450px;
+}
+.blue2 {
+    background-color: #0067A2;
+    height: 400px;
+    width:1000px;
+    }
+.full{
+    height: 900px;
+    width: 1600px;
+    margin: 0px;
+    background-color: #F6C600;}
