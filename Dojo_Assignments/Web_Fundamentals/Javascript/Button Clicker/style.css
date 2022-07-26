@@ -1,0 +1,131 @@
+/* CSS reset */
+*{
+    margin: 0px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.main{
+    margin: 2%;
+}
+
+/* Nav Bar */
+.nav{
+    width: 100%;
+    height: 50px;
+    background-color: #CCCCCC;   
+}
+
+.nav-title{
+    margin: 20px;
+}
+
+.d-flexnav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin: 0% 0% 2% 0%;
+}
+
+.search{
+    width: 300px;
+}
+.login{
+    background-color: #2B78E4;
+    color:white;
+    border: none;
+    font-size:16px;
+    width: 75px;
+    height: 25px;
+    box-shadow: 5px 5px black;
+    margin-right: 20px;
+}
+
+/* Columns */
+.container{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    align-items: top;
+}
+.column{
+    width: 66.6%;
+    display:flex;
+    flex-direction: column;
+}
+
+.column2{
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ninja Definition 1 */
+.d-flex1, .deflex3 {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    border: 2px solid #000000;
+    width: 95%;
+}
+
+.d-flex2{
+    display: flex;
+align-items: center;
+margin: 8%;
+}
+.d-flex3{
+    margin-top: 4%;
+}
+
+.ninja, .ninja2 {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 2%;
+
+}
+
+.ninja2 {
+    margin-top: 1%;
+}
+
+.margin{
+    margin: 4%
+}
+
+.btn{
+    background-color: #FFD966 ;
+    color: #493E1D;
+    border: 2px solid black;
+    box-shadow: 3px 3px #000000;
+    margin: 8% 2%;
+    width: 100%;
+    font-size: 15px;
+}
+
+/* Dojonary YOU */
+
+.dojonary{
+    width: 100%;
+    border: 2px solid #000000;
+}
+
+.dojobtn{
+    background-color: #93C47D ;
+    color: #493E1D;
+    border: 2px solid black;
+    box-shadow: 3px 3px #000000;
+    margin: 0% 11% 8% 11%;
+    width: 175px;
+    height: 35px;
+    font-size: 18px;
+}
+
+.dojomargin{
+    margin: 20px;
+}
+
+.video{
+    width: 200px;
+    height: 300px;
+}

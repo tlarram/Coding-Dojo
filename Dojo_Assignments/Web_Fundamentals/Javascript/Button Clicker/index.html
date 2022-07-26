@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Clicker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+    <div class="nav d-flexnav" >
+        <h1 class="nav-title">Dojonary</h1>
+        <input  type="text"  class="search" placeholder="Search..">
+        <button  onclick="login(this)" class="login">Login</button>
+    </div>
+    <div class="container">
+        <div class="column">
+            <div class="d-flex1">
+                <div class="ninja">
+                    <h1>ninja</h1>
+                    <p class="margin"><i>noun</i></p>
+                    <p class="margin">Plural:<i>ninjas</i></p>
+                    <button onclick="alert('Ninja was liked')" class="btn">13 Likes</button>
+                </div>
+                <div class="d-flex2">
+                        <p>A practitioner skiled in the <a href="#">Japanese</a> art of <a href="#">ninjutsu</a></p>
+                </div>
+            </div>
+            <div class="d-flex1 d-flex3">
+                    <div class="ninja2">
+                        <h1>ninja</h1>
+                        <p class="margin"><i>noun</i></p>
+                        <p class="margin">Plural:<i>ninjas</i></p>
+                        <button onclick="alert('Ninja was liked')" class="btn">37 Likes</button>
+                    </div>
+                    <div class="d-flex2">
+                            <p>A <a href="#">programmer</a> who breaks down problems with <a href="#">zen</a> -like focus
+                    </div>
+            </div>
+        </div>
+        <div class="column2">
+            <div class="dojonary">
+                <h3 class="dojomargin">Dojonary is<br> defined by YOU</h3>
+                <button onclick="hide(this)" class="dojobtn">Add definition</button>
+            </div>
+            <div>
+                <video class="video" src="Images/pexels-sunsetoned-7235417.mp4" loop onmouseover="this.play();" onmouseout="this.pause();"></video>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

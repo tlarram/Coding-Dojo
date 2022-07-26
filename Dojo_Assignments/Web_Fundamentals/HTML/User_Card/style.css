@@ -1,0 +1,57 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.container{
+    width: 1000px;
+    height: 800px;
+    margin: 50px;
+}
+.rectan{
+    background-color: #17A2B8;
+    height: 100px;
+    width: 700px;
+}
+.info{
+    background-color:#FFFFFF;
+    height: 200px;
+    width: 696px;
+    border: 2px solid grey;
+    padding-top: 60px;
+    margin-top: -66px;
+}
+
+.circle{
+    height: 100px;
+    width: 100px;
+    margin-top: 60px;
+    margin-left: 30px;
+}
+.map{
+    height: 15px;
+    width: 15px;
+    padding: 0px;
+
+}
+a{
+    height: 20px;
+    
+
+}
+.gear, .editprofile{
+    color: #5E8EB8;
+    display:inline-block;
+}
+.editmap{
+    display: inline-block;
+    font-size: 20px;
+    margin: 5px;
+}
+h1, h3, p, .gear {
+    margin-left: 30px;
+}
+
+.gear{
+    height: 20px;
+}

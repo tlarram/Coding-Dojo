@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Network</h1>
+    </header>
+    <h1 class="feed">Your Feed</hi>
+    <div class="container">
+        <div class="column">
+            <div class="profile">
+                <img class="icon" src="Images/user-circle.png" alt="profile icon">
+                <p class="mar"><a href="#">Add an avatar</a>
+                </p>
+                <h5 class="mar">James Doe</h5>
+            </div>
+        </div>
+        <div class="colum2">
+            <div class="d-flex">
+                <div class="flex">
+                    <h5>Neil M</h5>
+                    <p id="count">3 like(s)</p>
+                    <button class="btn" onclick="addlike()" >Like</button>
+                </div>
+                    <p class="filler">I just set up this new discord bot, let me know what you all think. <a href="#">link</a></p>  
+            </div>
+            <div class="d-flex">
+                <div class="flex">
+                    <h5>Nickole K</h5>
+                    <p id="count1">12 like(s)</p>
+                    <button class="btn2" onclick="addlike2()" >Like</button>
+                </div>
+                    <p class="filler">Just finished my <a href="#">next comic</a>, check it out</p>  
+            </div>
+            <div class="d-flex">
+                <div class="flex">
+                    <h5>Jim R</h5>
+                    <p id="count2">9 like(s)</p>
+                    <button class="btn3" onclick="addlike3()" >Like</button>
+                </div>
+                    <p class="filler">I can't stop listening to the <a href="#">new album</a>. Who else is liking it?</p>  
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
