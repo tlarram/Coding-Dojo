@@ -1,0 +1,149 @@
+/* CSS reset */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* General CSS */
+
+.d-flex{
+    display:flex;  
+}
+
+.justify-content-space-between {
+    justify-content: space-between
+}
+
+.justify-content-space-evenly {
+    justify-content:space-evenly;
+}
+
+.justify-content-space-about {
+    justify-content: space-around;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.vert{
+    vertical-align: top;
+}
+/* Colors */
+
+.blue {
+    background-color: rgb(159,197,248);
+}
+
+.change-name-during-assignment2 {
+    background-color: rebeccapurple;
+}
+
+.text-white {
+    color:white
+}
+
+/* Header */
+
+.cities{
+    width: 70%;
+
+    list-style-type: none;
+}
+
+
+/* Nav Bar */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.nav ul {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+}
+/* Main */
+
+.row {
+    display: flex;
+    width: 1000px;
+}
+
+.forecast {
+    flex: 1;
+    text-align: center;
+    background-color: #ddd;
+    padding: 40px 0;
+    margin-right: 20px;
+}
+
+.forecast img {
+    border-radius: 50%;
+    width: 150px;
+    margin: 40px 0;
+}
+
+.temperatures {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+
+}
+.high, .low {
+    font-weight: 900;
+}
+/* Learned from Solution */
+.high::after, .low::after {
+    content: "°";
+}
+
+.high {
+    color: #cf2a27;
+}
+
+.low {
+    color: #2b78e4;
+}
+
+/* Footer */
+.btn {
+    padding: 10px 20px;
+    font-size: 1.2;
+    border: 2px solid #000;
+    box-shadow: 4px 4px #000;
+    background-color: #9fc5f8;
+}
+
+#cookie {
+        box-sizing: border-box;
+        width: 1000px;
+        height: 160px;
+        padding: 20px;
+        border: 2px solid #999;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}
