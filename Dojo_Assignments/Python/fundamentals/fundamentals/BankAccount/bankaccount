@@ -1,8 +1,12 @@
 class BankAccount:
-    # don't forget to add some default values for these parameters!
+    balance=0
+    int_rate=0.001
+    all_BankAccount=[]
+
     def __init__(self, int_rate, balance): 
         self.int_rate= int_rate
         self.balance= balance
+        BankAccount.all_BankAccount.append(self)
         
         # your code here! (remember, instance attributes go here)
         # don't worry about user info here; we'll involve the User class soon
@@ -27,7 +31,15 @@ class BankAccount:
         self.balance= self.balance*self.int_rate + self.balance
         return self
 
+    @classmethod
+    def all_balances(cls):
+        print("=======================")
+        print( cls.int_rate)
+        print( cls.balance)
+        
+
 my_account= BankAccount(.01,400)
 my_account2= BankAccount(.01,900)
 my_account.deposit(400).deposit(300).deposit(200).withdraw(200).yield_interest().display_account_info()
 my_account2.deposit(400).deposit(300).withdraw(200).withdraw(200).withdraw(300).withdraw(200).yield_interest().display_account_info()
+BankAccount.all_balances()
