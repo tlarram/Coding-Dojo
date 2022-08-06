@@ -20,7 +20,7 @@ def repeat(num,words):
 
 # @app.errorhandler(404)
 # def not_found(e):
-#     return render_template('Sorry! No response. Try again.'), 404
+#     return 'Sorry! No response. Try again.'
 
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
     app.run(debug=True)    # Run the app in debug mode.

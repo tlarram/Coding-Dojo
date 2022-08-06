@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    margin: auto;
+    padding: 0px;
+    border-collapse: collapse; 
+}
+
+
+
+
+.box, .background-color, .background-color2 {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}

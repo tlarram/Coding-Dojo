@@ -1,0 +1,17 @@
+.box {
+    background-color: rgb(1,254,254);
+    height: 200px;
+    width: 200px;
+    border-radius: 5%;
+    border: 2px solid black;
+    text-align: center;
+    display: inline-block;
+    justify-content:space-ar;
+    padding: 10px;
+
+}
+
+body{
+    text-align: center;
+    width: 100%;
+}
