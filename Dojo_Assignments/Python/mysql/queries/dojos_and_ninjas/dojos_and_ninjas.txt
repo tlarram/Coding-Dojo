@@ -1,0 +1,53 @@
+Query: Create 3 new dojos
+INSERT INTO dojos (name)
+VALUES
+('Turtle Power'),
+('Cobra Kai'),
+('Miyagi-Do');
+
+Query: Delete the 3 dojos you just created
+DELETE FROM dojos WHERE id=1;
+DELETE FROM dojos WHERE id=2 or id=3;
+
+Query: Create 3 more dojos
+INSERT INTO dojos (name)
+VALUES
+('Turtle Power'),
+('Cobra Kai'),
+('Miyagi-Do');
+
+Query: Create 3 ninjas that belong to the first dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES
+('Leonardo', 'Blue', '17', '4'),
+('Donatello', 'Purple', '17', '4'),
+('Michelangelo', 'Orange', '17', '4');
+
+Query: Create 3 ninjas that belong to the second dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES
+('Daniel', 'Son', '15', '5'),
+('Jerry', 'Springer', '16', '5'),
+('Mike', 'Bowden', '17', '5');
+
+Query: Create 3 ninjas that belong to the third dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES
+('Miguel', 'Sosa', '15', '6'),
+('Don', 'Juan', '16', '6'),
+('John', 'Kreese', '17', '6');
+
+Query: Retrieve all the ninjas from the first dojo
+SELECT * 
+FROM ninjas
+WHERE dojo_id=4
+
+Query: Retrieve all the ninjas from the last dojo
+SELECT * 
+FROM ninjas
+WHERE dojo_id=6
+
+Query: Retrieve the last ninja's dojo
+SELECT * FROM ninjas
+JOIN dojos ON ninjas.dojo_id=dojos.id
+WHERE ninjas.id=(SELECT MAX(id) FROM ninjas);
