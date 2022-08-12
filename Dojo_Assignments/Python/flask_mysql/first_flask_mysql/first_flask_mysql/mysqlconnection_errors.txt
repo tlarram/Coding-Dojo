@@ -1,0 +1,22 @@
+jinja2.exceptions.TemplateNotFound: index.html
+
+No index.html file
+
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+
+took a t out of root for password
+
+ModuleNotFoundError: No module named 'pymysql.cursor'
+
+took the s off of import pymysql.cursors
+
+AttributeError: 'MySQLConnection' object has no attribute 'connection'
+
+mistypes the self.connection
+
+NameError: name 'Tru' is not defined
+Broke True
+
+
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+removed a comma
