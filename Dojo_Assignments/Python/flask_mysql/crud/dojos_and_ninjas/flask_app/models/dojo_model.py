@@ -31,7 +31,7 @@ class Dojo:
     @classmethod
     def get_one(cls,data):
         # query = 'SELECT dojos.id, dojos.name, ninjas.first_name, ninjas.last_name, ninjas.age FROM ninjas LEFT JOIN dojos ON dojos.id=dojo_id WHERE dojos.id=%(id)s;'
-        query='SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id=dojos.id WHERE dojos.id= %(id)s;'
+        query='SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id=dojos.id WHERE dojos.id= %(id)s'
         result= connectToMySQL(DATABASE).query_db(query,data)
         if result:
             dojo_instance = cls(result[0])
@@ -49,7 +49,7 @@ class Dojo:
             #     ninja_instance= ninja_model.Ninja(ninja_data)
             #     ninja_list.append(ninja_instance)
             # dojo_instance.ninjas_list = ninja_list
-            dojo_instance.ninjas.append(ninja_data)
+                dojo_instance.ninjas.append(ninja_data)
             return dojo_instance
         return result
 

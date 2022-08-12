@@ -19,11 +19,11 @@ class Ninja:
 
     @classmethod
     def get_one_ninja(cls,data):
-        query = 'SELECT * FROM ninjas WHERE id=%(id)s';
+        query = 'SELECT * FROM ninjas WHERE id=%(id)s'
         result= connectToMySQL(DATABASE).query_db(query,data)
         if result:
-            user_instance = cls(result[0])
-            return user_instance
+            ninja_instance = cls(result[0])
+            return ninja_instance
         return result
 
     @classmethod
