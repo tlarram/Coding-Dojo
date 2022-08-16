@@ -29,7 +29,11 @@
                 <tr>
                 {% for recipe in all_recipes %}
                     <td>{{recipe.name}}</td>
-                    <td>{% if recipe.cook_time == 1 %}Yes{%else%}No{%endif%}</td>
+                    {% if recipe.cook_time == '1' %}
+                        <td>Yes</td>
+                    {%else%}
+                        <td>No</td>
+                    {%endif%}
                     <td>{{recipe.poster.first_name}}</td>
                     <td><a href="/recipe/{{recipe.id}}/view">View Recipe</a> | 
                         {% if session['user_id']== recipe.user_id %}

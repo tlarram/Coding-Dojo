@@ -22,7 +22,7 @@
     </div>
     <div>
             <p>Description:         {{recipe.description}}</p>
-            <p>Under 30 minutes?    {% if recipe.cook_time == 1 %}Yes{% else %}No{% endif %}</p>
+            <p>Under 30 minutes?    {% if recipe.cook_time == '1' %}Yes{% else %}No{% endif %}</p>
             <p>Instructions         {{recipe.instructions}}</p>
             <p>Date Made            {{recipe.date_cooked}}</p>
     </div>

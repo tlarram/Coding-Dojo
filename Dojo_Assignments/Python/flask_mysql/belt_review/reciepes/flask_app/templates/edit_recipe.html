@@ -39,9 +39,9 @@
             <div class="m-3 mb-0 p-3 form-group ">
                 <label for="cook_time">Under 30 minutes?</label>
                 <label for="yes">Yes</label>
-                <input type="radio"  name="cook_time" id="cook_time" value='1' {% if recipe.cook_time ==1 %}checked{%endif%}>
+                <input type="radio"  name="cook_time" id="cook_time" value='1' {% if recipe.cook_time == '1' %}checked{%endif%}>
                 <label for="no">No</label>
-                <input type="radio"  name="cook_time" id="cook_time" value='2' {% if recipe.cook_time ==2 %}checked{%endif%}>
+                <input type="radio"  name="cook_time" id="cook_time" value='2' {% if recipe.cook_time =='2' %}checked{%endif%}>
             </div>
             <button  class="btn btn-warning m-4  ps-3 form-group">Submit</button>
         </form>
