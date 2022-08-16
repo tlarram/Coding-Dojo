@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 app.secret_key = "shhhhhh"
 
-DATABASE="wall_schema"
+DATABASE="recipes_schema"
