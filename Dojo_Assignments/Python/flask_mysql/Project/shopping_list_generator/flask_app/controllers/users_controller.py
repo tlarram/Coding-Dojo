@@ -3,8 +3,7 @@ import re
 from flask_bcrypt import Bcrypt
 from flask_app import app
 from flask_app.models.user_model import User
-from flask_app.models.message_model import Message
-
+from flask_app.models.recipes_model import Recipe
 
 
 
@@ -12,6 +11,8 @@ bcrypt = Bcrypt(app)
 
 @app.route('/')
 def index():
+    if "user_id" in session:
+        return redirect('welcome')
     return render_template('index.html')
 
 @app.route('/register', methods=['POST'])
@@ -24,19 +25,15 @@ def register():
         'password': hashed_pw
     }
     session['user_id'] = User.save(data)
-    return redirect('/dashboard')
+    return redirect('/welcome')
 
-@app.route('/dashboard')
-def dashboard():
+@app.route('/welcome')
+def welcome():
     if not "user_id" in session:
         return redirect('/')
-    data ={
-        'id':session['user_id']
-    }
-    user= User.get_by_id(data)
-    messages=Message.get_user_messages(data)
-    users= User.get_all()
-    return render_template("dashboard.html", messages=messages, user=user,users=users)
+    user= User.get_by_id({'id':session['user_id']})
+    all_recipes=Recipe.get_all()
+    return render_template("welcome.html", all_recipes=all_recipes, user=user)
 
 @app.route('/destroy/<int:id>')
 def destroy_user(id):
@@ -44,7 +41,7 @@ def destroy_user(id):
         "id": id
     }
     User.destroy_user(data)
-    return redirect('/dashboard')
+    return redirect('/welcome')
 
 @app.route("/logout")
 def logout():
@@ -64,5 +61,5 @@ def login():
         flash("Invalid Credintials", "log")
         return redirect('/')
     session['user_id'] = user_from_db.id
-    return redirect(('/dashboard'))
+    return redirect(('/welcome'))
     

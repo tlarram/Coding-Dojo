@@ -25,10 +25,10 @@ class User:
     def get_all(cls):
         query= 'SELECT * FROM users;'
         result=connectToMySQL(DATABASE).query_db(query)
-        user = []
+        emails = []
         for row in result:
-            user.append(cls(row))
-        return user
+            emails.append(cls(row))
+        return emails
 
     @classmethod
     def destroy_email(cls,data):
@@ -40,10 +40,10 @@ class User:
     def get_by_email(cls,data):
         query ="SELECT * from users WHERE email = %(email)s"
         results= connectToMySQL(DATABASE).query_db(query,data)
-        if not(results):
+        if len(results) < 1:
             return False
         return cls(results[0])
-
+    
     @classmethod
     def get_by_id(cls,data):
         query ="SELECT * from users WHERE id = %(id)s"
@@ -51,6 +51,7 @@ class User:
         if len(results) < 1:
             return False
         return cls(results[0])
+
 
     @staticmethod
     def validate(user_data):
@@ -73,10 +74,10 @@ class User:
             potential_user= User.get_by_email(data)
             if potential_user:
                 is_valid= False
-                flash("Provided email already has an account, please select forgot password", 'reg')    
+                flash("Provided email already has an account, please select forgot password")    
         if len(user_data['password']) <8:
             flash('Passwords must be at least 8 chars','reg')
         elif not user_data['password']== user_data['confirm_pass']:
-            flash("Passwords don't match")
+            flash("Passwords don't match", 'reg')
             is_valid= False
         return is_valid
