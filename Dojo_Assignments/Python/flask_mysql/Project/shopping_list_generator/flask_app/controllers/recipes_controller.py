@@ -1,14 +1,16 @@
-from flask import render_template, session,flash,redirect, request
+from flask import render_template, session,flash,redirect, request, jsonify
 import re
 from flask_bcrypt import Bcrypt
 from flask_app import app
 from flask_app.models.user_model import User
 from flask_app.models.recipes_model import Recipe
 import requests
+import os
+
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
   'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-  'x-rapidapi-key': "82582ef887msh04c9754b6c988d6p137b9ajsn335039a21fc3",
+  'x-rapidapi-key': os.environ.get("FLASK_APP_API_KEY"),
 }
 random_joke = "food/jokes/random"
 find = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients"
@@ -36,6 +38,25 @@ def create_recipe():
     Recipe.save_recipe(data)
     return redirect('/welcome')
 
+@app.route('/api/recipe/create', methods=['POST']) #action
+def api_create_recipe():
+    if not "user_id" in session:
+        return redirect('/')
+    print(request.form)
+    data={
+            **request.form,
+            'user_id': session['user_id']
+    }
+    user=User.get_by_id({'id': session['user_id']})
+    recipe_id=Recipe.save_recipe(data)
+    res={
+        'msg': 'success',
+        'form': data,
+        'recipe_id': recipe_id,
+        'poster':f"{user.first_name}"
+        }
+    return jsonify(res)
+
 @app.route('/recipe/<int:id>/edit')
 def update_recipe_form(id):
     if not "user_id" in session:
@@ -56,19 +77,25 @@ def update_recipe(id):
     Recipe.update(data)
     return redirect('/welcome')
 
-@app.route('/recipe/<int:id>/delete')
-def delete_party(id):
+@app.route('/api/recipe/<int:id>/update', methods=['POST']) #action
+def api_update_recipe(id):
     if not "user_id" in session:
         return redirect('/')
+    print(request.form)
     data={
-        'id':id
+            **request.form,
+            'user_id': session['user_id']
     }
-    deleted=Recipe.get_by_id(data)
-    if not session['user_id'] == deleted.user_id:
-        flash("Quit tryiong to delete other people's stuff")
-        return redirect('/')
-    Recipe.delete(data)
-    return redirect("/welcome")
+    user=User.get_by_id({'id': session['user_id']})
+    recipe_id=Recipe.update(data)
+    res={
+        'msg': 'success',
+        'form': data,
+        'recipe_id': recipe_id,
+        'poster':f"{user.first_name}",
+         'id':id
+        }
+    return jsonify(res)
 
 @app.route("/recipe/<int:id>/view")
 def show_one_recipe(id):
@@ -100,5 +127,34 @@ def get_recipes():
         print(response)
         return render_template('apirecipes.html', recipes=response['recipes'])
 
+@app.route('/recipe/<int:id>/delete')
+def delete_party(id):
+    if not "user_id" in session:
+        return redirect('/')
+    data={
+        'id':id
+    }
+    deleted=Recipe.get_by_id(data)
+    if not session['user_id'] == deleted.user_id:
+        flash("Quit tryiong to delete other people's stuff")
+        return redirect('/')
+    Recipe.delete(data)
+    return redirect("/welcome")
 
 
+@app.route('/recipe')
+def api_get_recipe():
+  recipe_id = request.args['id']
+  recipe_endpoint = "recipes/{0}/information".format(recipe_id)
+  nutritionWidget = "recipes/{0}/nutritionWidget".format(recipe_id)
+  recipe_info = requests.request("GET", url + recipe_endpoint, headers=headers).json()
+    
+  recipe_headers = {
+      'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      'x-rapidapi-key': os.environ.get("FLASK_APP_API_KEY"),
+      'accept': "text/html"
+  }
+  querystring = {"defaultCss":"true", "showBacklink":"false"}
+  recipe_info['nutritionWidget'] = requests.request("GET", url + nutritionWidget, headers=headers, params=querystring).text
+    
+  return render_template('api_recipe.html', recipe=recipe_info)
