@@ -3,7 +3,7 @@ import re
 from flask_bcrypt import Bcrypt
 from flask_app import app
 from flask_app.models.user_model import User
-from flask_app.models.recipes_model import Recipe
+from flask_app.models.recipe_model import Recipe
 
 
 
