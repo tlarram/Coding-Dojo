@@ -2,7 +2,8 @@ import React, { useState } from  'react';
 import Display from './Display';
     
 const UserForm = (props) => {
-    const [username, setUsername] = useState("");
+    const [firstname, setFirstName] = useState("");
+    const [lastname, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");  
     const [confirmpassword, setConfirmpassword] = useState("");  
@@ -34,7 +35,7 @@ const UserForm = (props) => {
                 </div>
                 <input type="submit" value="Create User" />
             </form>
-            <Display username={username} email={email} password={password} confirmpassword= {confirmpassword} />
+            <Display firstname={firstname} lastname={lastname} email={email} password={password} confirmpassword= {confirmpassword} />
         </div>
     );
 };
