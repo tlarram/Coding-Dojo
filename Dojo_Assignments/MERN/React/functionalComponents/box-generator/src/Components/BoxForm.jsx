@@ -1,66 +1,45 @@
 import React, { useState } from 'react';
-import StyledBox from './StyledBox';
 import StyledButton from './StyledButton';
 import StyledInput from './StyledInput';
     
 const BoxForm = (props) => {
-    const colorField = React.createRef();
-    const widthField = React.createRef();
+    const [colorField, setColorField] = useState('')
+    const [widthField, setWidthfield]= useState("") 
 
-    const [box, setBox] = useState({
-        boxes:[],
-        newColor:'',
-        newWidth: 0
-});
+    const [box, setBox] = useState([]);
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        setBox({
-            boxes:[...box.boxes,{
-                color: box.newColor,
-                width: box.newWidth
-            }]
-        })
+        props.newBox(colorField)
 };
     const onChangeColorHandler = e => {
-    e.preventDefault();
-    setBox({
-    ...box,
-    newColor: e.target.value
-    });
+    // e.preventDefault();
+    setColorField(e.target.value
+    );
 };
-    const onChangeWidthHandler = e => {
-    e.preventDefault();
-    setBox({
-        ...box,
-        newWidth: e.target.value
-    });
-};
+//     const onChangeWidthHandler = e => {
+//     e.preventDefault();
+//     setWidthfield(e.target.value
+//     );
+// };
     
 return (
     <div>
     <h1>Add a box box!</h1>
+    <form onSubmit={handleSubmit}>
     <label>Color:</label>
     <StyledInput
-        ref={colorField}
+        value= {colorField}
         onChange={onChangeColorHandler}
         placeholder="Color. Ex: red, green, blue..."/>
     <label>Width:</label>
-    <StyledInput
-        ref={widthField}
+    {/* <StyledInput
+        value= {widthField}
         onChange={onChangeWidthHandler}
-        placeholder="Choose you pixels Ex: 20px"/>
-    <StyledButton onClick={handleSubmit}>Submit</StyledButton>
-    <div>
-        {box.boxes.map((box, i) => (
-        <StyledBox
-            key={i}
-            bgColor={box.color}
-            width={box.width}
-            height={box.width}
-        ></StyledBox>
-        ))}
-    </div>
+        placeholder="Choose you pixels Ex: 20px"/> */}
+    {/* <StyledButton type="submit">Submit</StyledButton> */}
+    <button type='submit'>Submit</button>
+    </form>
     </div>
     );
 };
