@@ -17,7 +17,7 @@ const  ToDoListForm =(props) =>{
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type='text' name="toDoItem" value={toDo} onChange={e=>setToDo(e.target.value)}></input>
+        <input type='text' name="toDoItem" value={toDo} onChange={e=>setToDo(e.target.value)}/>
         <button type="submit">Add</button>
       </form>
     </div>
