@@ -1,8 +1,9 @@
 
 const express = require("express");
+const faker = require('@faker-js/faker')
 const app = express();
 const port = 8000;
-// import { faker } from '@faker-js/faker';
+
 
 // remember to use import and NOT require
 // we can create a function to return a random / fake "Product"
@@ -39,13 +40,13 @@ const createFakeCompany = () => {
   const newCompany = {
     _id: faker.datatype.uuid(),
     name: faker.company.Name(),
-    this.address = {
+    address:,
       street: faker.address.street(),
       city: faker.address.city(),
       state: faker.address.state(),
       zipCode:faker.address.zipCode(),
       country: faker.address.country()
-    }
+    
   };
   return newCompany;
 };
