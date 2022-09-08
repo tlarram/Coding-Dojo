@@ -1,0 +1,14 @@
+https://pokeapi.co/api/v2/pokemon/ditto
+
+
+https://pokeapi.co/api/v2/pokemon/bulbasaur
+
+
+https://pokeapi.co/api/v2/pokemon/charmander
+
+
+https://pokeapi.co/api/v2/pokemon/squirtle
+
+https://pokeapi.co/api/v2/pokemon/143
+
+https://pokeapi.co/api/v2/pokemon/zapatos
