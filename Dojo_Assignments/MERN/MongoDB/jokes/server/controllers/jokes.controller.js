@@ -44,3 +44,12 @@ module.exports.deleteJoke = (req, res) =>{
         .then(result => res.json({ result: result }))
         .catch(err => res.json({ message: 'Something went wrong', error: err }));
 }
+
+module.exports.randomJoke = (req, res) => {
+    Joke.find()
+    .then(allJokes => {
+        const randomId= Math.floor(Math.random() * allJokes.length);
+        res.json(allJokes[randomId])
+    })
+    .catch(err => res.json({ message: 'Something went wrong', error: err }));
+}
