@@ -1,11 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import Dashboard from './views/Dashboard';
+import Main from './views/Main';
+import {Routes, Route, Link} from "react-router-dom";
+import OneProduct from './views/OneProduct';
 function App() {
   return (
     <div >
       <h1>Product Dashboard</h1>
-      <Dashboard/>
+      {/* <Main/> */}
+
+      <Routes>
+        <Route path='/' element={<Main/>} />
+        <Route path='/api/product/:id' element={<OneProduct/>} />
+      </Routes>
     </div>
   );
 }

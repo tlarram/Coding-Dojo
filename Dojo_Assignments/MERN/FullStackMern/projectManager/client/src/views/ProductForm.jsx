@@ -2,25 +2,19 @@ import React, {useState, useEffect} from 'react'
 import axios from "axios"
 import {useNavigate} from 'react-router-dom'
 
-const Dashboard = () => {
-    const [products,setProducts]= useState()
+const ProductForm = () => {
     const navigate = useNavigate()
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState('')
     const [description, setDescription] = useState('')
-
-    useEffect(() => {
-        axios.get(`http://localhost:8000/api/product`)
-        .then(res=>setProducts(res.data))
-        .catch(err=>console.log(err))
-        },[])
-
+    
+    
     const handleSubmit =(e) => {
         e.preventDefault()
         axios.post(`http://localhost:8000/api/product`, {title, price, description})
         .then(response=>{
             console.log(response)
-            navigate('/api/product')
+            navigate('/')
         })
         .catch(err=>console.log(err))
         setTitle('')
@@ -28,7 +22,7 @@ const Dashboard = () => {
         setDescription('')
     } 
 
-  return (
+    return (
     <form onSubmit={handleSubmit}>
         <div>
             <label>Title: </label>
@@ -44,8 +38,7 @@ const Dashboard = () => {
         </div>
         <button type="submit">Create</button>
     </form>
-  )
+)
 }
-
-
-export default Dashboard
+    
+export default ProductForm
