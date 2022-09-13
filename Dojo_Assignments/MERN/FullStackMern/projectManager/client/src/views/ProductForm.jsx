@@ -11,7 +11,7 @@ const ProductForm = () => {
     
     const handleSubmit =(e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/product`, {title, price, description})
+        axios.post(`http://localhost:8000/api/author/add`, {title, price, description})
         .then(response=>{
             console.log(response)
             navigate('/')
