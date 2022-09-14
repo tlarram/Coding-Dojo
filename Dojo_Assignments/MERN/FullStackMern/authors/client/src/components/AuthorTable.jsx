@@ -32,7 +32,8 @@ const AuthorTable = (props) => {
         </thead>
         <tbody>
             {
-                props.authors.map((eachAuthor,i) =>{
+                
+                props.authors.sort((a, b) => a.name.localeCompare(b.name)).map((eachAuthor,i) => {
                     return(
                         <tr key={i}>
                             <td><Link to={`/author/${eachAuthor._id}`}>{eachAuthor.name}</Link></td>
