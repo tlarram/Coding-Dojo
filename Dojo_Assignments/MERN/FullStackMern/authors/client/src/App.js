@@ -5,6 +5,8 @@ import AuthorDashboard from './views/AuthorDashboard';
 import CreateAuthor from './views/CreateAuthor';
 import UpdateAuthor from './views/UpdateAuthor';
 import DetailPage from './views/DetailPage';
+import ErrorPage from './views/ErrorPage';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path='/author/add' element={<CreateAuthor/>} />
         <Route path='/author/:id' element={<DetailPage/>} />
         <Route  path="/author/edit/:id/" element={<UpdateAuthor/>}/>
+        <Route path='*' element={<ErrorPage/>} />
       </Routes>
     </div>
   );

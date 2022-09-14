@@ -10,7 +10,13 @@ const AuthorTable = (props) => {
         .then(res=>{
             props.onDelete(deleteId)
         })
-        .catch(err=>console.log(err))
+        .catch(err=> {
+            const errorResponseData = err.response.data
+            const errMsgArr= []
+            for(const eachKey in errorResponseData){
+                errMsgArr.push(errorResponseData[eachKey].message)
+            }
+    })
 
     }
 
