@@ -23,7 +23,7 @@ module.exports.oneAuthor = (req, res) => {
 module.exports.createAuthor = (req, res) =>{
     const newAuthor= req.body
     Author.create(newAuthor)
-        .then(newAuthor=> res.json({newAuthor }))
+        .then(newAuthor=> res.json(newAuthor))
         .catch(err => res.status(400).json({ message: 'Something went wrong', error: err }));
 }
 
@@ -34,14 +34,14 @@ module.exports.updateAuthor = (req, res) =>{
         req.body,
         { new: true, runValidators: true }
     )
-        .then(updatedAuthor => res.json({ Author: updatedAuthor }))
+        .then(updatedAuthor => res.json( updatedAuthor ))
         .catch(err => res.status(400).json({ message: 'Something went wrong', error: err }));
 }
 
 // delete
 module.exports.deleteAuthor = (req, res) =>{
     Author.deleteOne({ _id: req.params.id })
-        .then(result => res.json({ result: result }))
+        .then(result => res.json( result))
         .catch(err =>res.status(400).json({ message: 'Something went wrong', error: err }));
 }
 
