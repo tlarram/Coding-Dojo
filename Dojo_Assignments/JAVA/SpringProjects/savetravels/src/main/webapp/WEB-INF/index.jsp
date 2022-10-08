@@ -11,6 +11,7 @@
 <title>Expenses</title>
 </head>
 <body>
+
 <h1>Expenses</h1>
 <table>
     <thead>
@@ -19,6 +20,7 @@
             <th>Expense</th>
             <th>Vendor</th>
             <th>Amount</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -26,9 +28,17 @@
          <c:forEach var="expense" items="${expenses}">
          <tr>
          <td><c:out value="${expense.id }"></c:out></td>
-         <td><c:out value="${expense.expenseName }"></c:out></td>
+         <td><a href="/expenses/${expense.id}"><c:out value="${expense.expenseName }"></c:out></a></td>
 		 <td><c:out value="${expense.vendor}"></c:out></td>
 		 <td><c:out value="${expense.amount}"></c:out></td>
+		 <td><a href="/expenses/edit/${expense.id}">Edit</a><td>
+		 <td>
+		 <form action="/expenses/delete/${expense.id }" method="POST">
+		 <input type="hidden" name="_method" value="delete">
+		 <button class="btn btn-danger" type="submit">Delete</button>
+		 </form>
+		 
+		 </td>
          </tr>
          </c:forEach>
     </tbody>

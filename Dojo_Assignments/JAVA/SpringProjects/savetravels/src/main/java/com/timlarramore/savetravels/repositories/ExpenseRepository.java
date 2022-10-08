@@ -9,4 +9,6 @@ import com.timlarramore.savetravels.models.Expense;
 public interface ExpenseRepository extends CrudRepository<Expense, Long> {
 
 	List<Expense> findAll();
+	
+	
 }
