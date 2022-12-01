@@ -10,16 +10,16 @@
   return the original string.
   */
 
-  const s1 = "aaaabbcddd";
+  const str1 = "aaaabbcddd";
   const expected1 = "a4b2c1d3";
   
-  const s2 = "";
+  const str2 = "";
   const expected2 = "";
   
-  const s3 = "a";
+  const str3 = "a";
   const expected3 = "a";
   
-  const s4 = "bbcc";
+  const str4 = "bbcc";
   const expected4 = "bbcc";
   
   /**
@@ -32,29 +32,24 @@
    * @returns {string} The given string encoded.
    */
 function encodeStr(str) {
-    var new_string = ""
+    var encoded = "";
     for (i = 0; i < str.length; i++ ) {
-        let count = 1
-        let letter = str[i]
-        while (i<str.length-1 && str[i] === str[i+1]){
-            count += 1 
-            i += 1
+        let count = 1;
+        
+        while (str[i] ==  str[i+1] && i + 1 <str.length){
+            count += 1 ;
+            i++;
         }
-        if (count === 1 ){
-            new_string += new_string + letter
-            console.log(new_string)
-        }
-        if (count === 2){
-            new_string = new_string + letter + letter
-            console.log(new_string)
-        }
-        else {
-            new_string = new_string + letter + count
-            console.log(new_string)
-        }
+        encoded += str[i];
+        encoded += count;
+        
     }
+    return encoded.length < str.length ? encoded : str
 }
 console.log(encodeStr(str1));
+console.log(encodeStr(str2));
+console.log(encodeStr(str3));
+console.log(encodeStr(str4));
 
 
   

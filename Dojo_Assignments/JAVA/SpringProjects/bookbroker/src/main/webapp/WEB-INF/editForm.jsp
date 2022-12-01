@@ -43,6 +43,9 @@
 	</div>
 </form:form>
 </div>	
-
+	<form action="names/delete/${name.id}" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete" class="btn btn-danger">
+	</form>
 </body>
 </html>

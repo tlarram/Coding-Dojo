@@ -13,7 +13,7 @@
 </head>
 <body class="container">
 <div class="d-flex justify-content-between">
-<h1>Welcome, ${firstName }!</h1>
+<h1>Welcome, ${firstName}!</h1>
 <p><a class="btn btn-danger" href="/logout">Log Out</a>
 </div>
 <div class="d-flex justify-content-between">
@@ -70,6 +70,7 @@
     </thead>
     <tbody>
     	<c:forEach var="project" items="${assignedProjects}">
+    
               <tr>
                 <td><a href="/projects/${project.id}"><c:out value="${project.title}"/></a></td>
                 <td><c:out value="${project.lead.firstName}"/></td>
@@ -81,8 +82,65 @@
                   </form>
                 </td>
               </tr>
+     
             </c:forEach>
     </tbody>
 </table>
+<h1>Project Manager Dashboard</h1>
+<p>Welcome, ${user.firstName}</p>
+<p><a href="/logout">Log Out</a></p>
+
+<h4>All Projects</h4>
+<p><a href="/projects/new">Add Project</a></p>
+<table>
+    <thead> 
+    	<tr>
+    		<th>Project</th>
+    		<th>Team Lead</th>
+    		<th>Due Date</th>
+    		<th>Actions</th>
+    	</tr>
+    </thead>
+    <tbody>
+    	<c:forEach var="project" items="${unassignedProjects}">
+		<tr>
+			<c:if test = "${project.lead.id!=user.id}">
+			<td><a href="/projects/${project.id}">${project.title}</a></td>
+			<td><c:out value="${project.lead.firstName}"></c:out></td>
+			<td><fmt:formatDate value="${project.dueDate}" pattern="MMMM dd"/></td>
+		    <td><a href="/dashboard/join/${project.id}">Join Team</a></td>
+		    </c:if>
+		</tr>	
+		</c:forEach>
+    </tbody>
+</table>
+
+<hr>
+<h4>Your Projects</h4>
+<table>
+    <thead> 
+    	<tr>
+    		<th>Project</th>
+    		<th>Team Lead</th>
+    		<th>Due Date</th>
+    		<th>Actions</th>
+    	</tr>
+    </thead>
+    <tbody>
+    	<c:forEach var="project" items="${assignedProjects}">
+		<tr>
+			<td><a href="/projects/${project.id}">${project.title}</a></td>
+			<td><c:out value="${project.lead.firstName}"></c:out></td>
+			<td><fmt:formatDate value="${project.dueDate}" pattern="MMMM dd"/></td>
+			<c:if test = "${project.lead.id==user.id}">
+		       <td><a href="/projects/edit/${project.id}">Edit Project</a></td>
+		    </c:if>
+		    <c:if test = "${project.lead.id!=user.id}">
+		       <td><a href="/dashboard/leave/${project.id}">Leave Team</a></td>
+		    </c:if>
+		</tr>	
+	</c:forEach>
+    </tbody>
+</table>  
 </body>
 </html>

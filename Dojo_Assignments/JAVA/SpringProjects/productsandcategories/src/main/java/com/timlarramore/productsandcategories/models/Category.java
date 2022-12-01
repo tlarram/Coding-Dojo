@@ -37,7 +37,8 @@ public class Category {
    
 	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
-  @ManyToMany(fetch = FetchType.LAZY)
+  
+	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "categories_products", 
         joinColumns = @JoinColumn(name = "category_id"), 
