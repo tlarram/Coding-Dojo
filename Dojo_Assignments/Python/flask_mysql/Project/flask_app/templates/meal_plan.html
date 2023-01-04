@@ -10,41 +10,21 @@
 <body>
     <h1>Welcome, {{user.first_name}}</h1>
     <div class="d-flex justify-content-between">
-        <h3>All posted recipes</h3>
+        <h3>Meal Planning Time!</h3>
             <div>
-                <a href="recipe/new">+ Create</a> 
+                <a href="/recipe/new">+ Create Recipe</a> 
                 <a class="btn btn-primary m-4  ps-3 form-group" href="/logout">Logout</a>
             </div>
     </div>
-    <form action='/meal_plan' method='post' id='meal_plan' </form>
-        <table class="table teble-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Under</th>
-                    <th>Posted By</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-                <tbody>
-                    <tr>
-                    {% for recipe in all_recipes %}
-                    <td><input type="checkbox" id="ckmealplan" name="meal plan"></td>
-                        <td>{{recipe.name}}</td>
-                        {% if recipe.cook_time == '1' %}
-                            <td>Yes</td>
-                        {%else%}
-                            <td>No</td>
-                        {%endif%}
-                        <td>{{recipe.poster.first_name}}</td>
-                        <td><a href="/recipe/{{recipe.id}}/view">View Recipe</a> | 
-                            {% if session['user_id']== recipe.user_id %}
-                            <a href="recipe/{{recipe.id}}/edit">Edit</a> | <a href="/recipe/{{recipe.id}}/delete">Delete</a></td>
-                            {% endif %}
-                    </tr>
-                    {% endfor%}
-                </tbody>
-        </table>
+    <form action='/mealplan/create' method='post' id='meal_plan'>
+        <label for="name">Meal Plan Name</label>
+        <input type="text" name="name">
+        <label for="start_date">Start Date</label>
+        <input type="date" name="start_date">
+        
+        <label for="meal plan">Meal Plan</label>
+
+        
         <input hidden id='pumpState' name='pumpState'> 
         <button class="btn btn-warning m-4  ps-3 form-group">Create a Meal Plan</button>
     </form>
