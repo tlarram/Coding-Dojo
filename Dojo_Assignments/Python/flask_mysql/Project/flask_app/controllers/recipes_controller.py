@@ -106,7 +106,7 @@ def show_one_recipe(id):
     }
     user= User.get_by_id({'id':session['user_id']})
     recipe =Recipe.get_by_id(data)
-    return render_template("recipes.html", recipe=recipe, user=user)
+    return render_template("one_recipe.html", recipe=recipe, user=user)
 
 @app.route('/joke')
 def search_page():

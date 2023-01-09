@@ -33,7 +33,7 @@ def welcome():
         return redirect('/')
     user= User.get_by_id({'id':session['user_id']})
     all_recipes=Recipe.get_all()
-    return render_template("welcome.html", all_recipes=all_recipes, user=user)
+    return render_template("home.html", all_recipes=all_recipes, user=user)
 
 @app.route('/destroy/<int:id>')
 def destroy_user(id):
